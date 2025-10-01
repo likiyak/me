@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likiya Khatun | Certified Shopify Expert & AI SEO Strategist</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom Styling for dark theme and subtle animations */
+        :root {
+            --primary: #00bfff; /* Bright Blue/Teal Accent */
+            --dark-bg: #111827; /* Dark Charcoal */
+            --mid-bg: #1f2937; /* Slightly Lighter Dark */
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: #d1d5db;
+        }
+
+        /* ADDED: Smooth Scrolling for Navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Skill Bar Animation */
+        .skill-bar-inner {
+            transition: width 1s ease-out;
+        }
+
+        /* Accordion Customization */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .accordion-content.active {
+            max-height: 800px; /* Increased size to accommodate tables */
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .job-timeline-dot {
+            content: '';
+            position: absolute;
+            left: -0.85rem;
+            top: 1rem;
+            width: 0.8rem;
+            height: 0.8rem;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid var(--dark-bg);
+        }
+
+        /* Button hover animation */
+        .btn-animate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 191, 255, 0.4);
+        }
+
+        /* Table Styling for new section */
+        .expert-table th, .expert-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #374151;
+        }
+        .expert-table th {
+            background-color: #1f2937;
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        /* Service Tab Styling */
+        .tab-button.active {
+            background-color: var(--dark-bg); 
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            font-weight: 700;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Paid Media Card Mockup Style */
+        .media-card-mockup {
+            border: 1px solid #374151;
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.1);
+        }
+        .media-card-header {
+            background-color: #1f2937;
+            color: #a1a1aa;
+        }
+        .social-link-icon {
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .social-link-icon:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVIGATION MENU (FIXED) -->
+    <nav class="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-95 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#hero" class="text-xl font-bold text-white hover:text-sky-400 transition duration-300">
+                Likiya K.
+            </a>
+            <div class="hidden lg:flex space-x-6 text-sm font-medium">
+                <a href="#about-value" class="text-gray-300 hover:text-sky-400 transition duration-300">About</a>
+                <a href="#expertise" class="text-gray-300 hover:text-sky-400 transition duration-300">Expertise</a>
+                <a href="#paid-media" class="text-gray-300 hover:text-sky-400 transition duration-300">Paid Media</a>
+                <a href="#services" class="text-gray-300 hover:text-sky-400 transition duration-300">Services</a>
+                <a href="#projects" class="text-gray-300 hover:text-sky-400 transition duration-300">Projects</a>
+                <a href="#history" class="text-gray-300 hover:text-sky-400 transition duration-300">History</a>
+                <a href="#contact" class="text-sky-400 hover:text-white transition duration-300 border-b-2 border-transparent hover:border-sky-400 pb-1">Contact</a>
+            </div>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button class="lg:hidden text-gray-300 hover:text-sky-400 focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-800 border-t border-gray-700">
+            <a href="#about-value" onclick="toggleMobileMenu()" class="block px-4 py-2 text-gray-300 hover:bg-gray-700">About</a>
+            <a href="#expertise" onclick="toggleMobileMenu()" class="block px-4 py-2 text-gray-300 hover:bg-gray-700">Expertise</a>
+            <a href="#paid-media" onclick="toggleMobileMenu()" class="block px-4 py-2 text-gray-300 hover:bg-gray-700">Paid Media</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block px-4 py-2 text-gray-300 hover:bg-gray-700">Services</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block px-4 py-2 text-gray-300 hover:bg-gray-700">Projects</a>
+            <a href="#history" onclick="toggleMobileMenu()" class="block px-4 py-2 text-gray-300 hover:bg-gray-700">History</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block px-4 py-2 text-sky-400 hover:bg-gray-700">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero" class="section pt-32 pb-24 bg-gray-900 border-b border-gray-700">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-3/5">
+                <!-- MODIFIED H1 -->
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-white mb-4 leading-tight">Hire the best Shopify Store Expert in Bangladesh</h1>
+                <!-- MODIFIED H2 -->
+                <h2 class="text-2xl font-semibold text-sky-400 mb-6">Top Quality Shopify Expert in CRO, SEO, Growth Hacker Specialist</h2>
+                
+                <p class="text-xl text-gray-300 mb-6">Likiya Khatun | E-commerce Revenue Engineer | **75%+ Organic Traffic Growth Achieved**</p>
+                
+                <p class="text-lg text-gray-400 mb-8">
+                    I transform Shopify stores into **powerful, predictable sales engines** by implementing AI-driven SEO strategy and Conversion Rate Optimization (CRO). My work focuses exclusively on **data-driven tactics** that boost traffic, conversions, and measurable revenue growth.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="btn-animate bg-sky-500 hover:bg-sky-600 text-gray-900 font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">
+                        <i class="fas fa-rocket mr-2"></i> Get a Free Store Audit & Strategy Call
+                    </a>
+                    <a href="#" class="btn-animate bg-transparent border border-sky-500 text-sky-400 hover:bg-sky-500 hover:text-white font-bold py-3 px-6 rounded-lg transition duration-300" download>
+                        <i class="fas fa-download mr-2"></i> Download Full CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:w-1/4 mt-12 lg:mt-0 bg-gray-800 p-6 rounded-xl border border-sky-500 shadow-xl">
+                <p class="text-sm font-medium text-gray-400 mb-2 uppercase tracking-wider">Freelance Rate</p>
+                <span class="text-5xl font-extrabold text-sky-400 block mb-4">$10.00/hr</span>
+                <a href="https://www.upwork.com/freelancers/~01819fb05c41718bf3" target="_blank" class="text-sm text-gray-400 hover:text-white underline transition duration-300 flex items-center justify-center">
+                    View Upwork Profile <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Social Links (Authority Bar) -->
+        <div class="container mx-auto px-4 mt-16 flex justify-center space-x-8">
+            <a href="https://www.linkedin.com/in/likiya/" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 text-3xl social-link-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/likiyak" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 text-3xl social-link-icon"><i class="fab fa-github"></i></a>
+            <a href="https://web.facebook.com/likiyakhatun" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 text-3xl social-link-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/likiyakhatun" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 text-3xl social-link-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@rannabannadaily" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 text-3xl social-link-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@likiyakhatun" target="_blank" class="text-gray-400 hover:text-sky-400 transition duration-300 text-3xl social-link-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </header>
+
+    <!-- NEW SECTION: ABOUT / FULL-STACK VALUE PROP -->
+    <section id="about-value" class="section bg-gray-800">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold text-center mb-6 text-white">
+                <i class="fas fa-info-circle mr-2 text-sky-400"></i> The Full-Stack E-commerce Freelancer
+            </h2>
+            <p class="text-xl text-gray-300 mb-6">
+                I am a results-driven **Full-Stack eCommerce Freelancer** specializing in turning concepts into profitable online stores. My expertise spans the entire business cycle, from initial platform setup to aggressive traffic generation.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-8">
+                <div class="p-4 bg-gray-900 rounded-lg border border-gray-700">
+                    <i class="fas fa-store text-2xl text-sky-400 mb-2"></i>
+                    <h3 class="font-semibold text-white mb-1">Store Development</h3>
+                    <p class="text-sm text-gray-400">Designing and building high-converting, mobile-responsive drop-shipping and retail sites (Shopify/WooCommerce).</p>
+                </div>
+                <div class="p-4 bg-gray-900 rounded-lg border border-gray-700">
+                    <i class="fas fa-leaf text-2xl text-green-500 mb-2"></i>
+                    <h3 class="font-semibold text-white mb-1">Organic Growth (SEO)</h3>
+                    <p class="text-sm text-gray-400">Implementing certified SEO strategies for long-term, cost-effective visibility and conversion rate improvements.</p>
+                </div>
+                <div class="p-4 bg-gray-900 rounded-lg border border-gray-700">
+                    <i class="fas fa-bullhorn text-2xl text-red-500 mb-2"></i>
+                    <h3 class="font-semibold text-white mb-1">Paid Traffic (PPC/Social)</h3>
+                    <p class="text-sm text-gray-400">Setting up, optimizing, and scaling profitable Google Ads and Social Media ad campaigns (Meta/Instagram).</p>
+                </div>
+            </div>
+            <p class="text-lg text-gray-400 mt-8 italic">
+                I focus on measurable growth and client profitability. Let's discuss how to launch or scale your next eCommerce venture.
+            </p>
+        </div>
+    </section>
+
+    <!-- EXPERTISE MATRIX SECTION -->
+    <section id="expertise" class="section bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <i class="fas fa-chart-bar mr-2 text-sky-400"></i> Expertise Matrix: Skills & Proficiency
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Skill Item 1: Shopify/E-commerce -->
+                <div class="p-6 rounded-xl border-t-4 border-sky-500 bg-gray-800 shadow-2xl">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Shopify & E-Commerce</h3>
+                    <div class="h-2 bg-gray-700 rounded-full mb-3">
+                        <div class="skill-bar-inner h-full bg-sky-500 rounded-full" style="width: 100%;"></div>
+                    </div>
+                    <p class="text-sm font-bold text-sky-400 mb-2">Expert (5/5)</p>
+                    <p class="text-gray-400">Shopify Plus, Liquid, WooCommerce, App Integration.</p>
+                </div>
+
+                <!-- Skill Item 2: SEO -->
+                <div class="p-6 rounded-xl border-t-4 border-sky-500 bg-gray-800 shadow-2xl">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Organic Growth (SEO)</h3>
+                    <div class="h-2 bg-gray-700 rounded-full mb-3">
+                        <div class="skill-bar-inner h-full bg-sky-500 rounded-full" style="width: 100%;"></div>
+                    </div>
+                    <p class="text-sm font-bold text-sky-400 mb-2">Expert (5/5)</p>
+                    <p class="text-gray-400">AI SEO, Schema Markup, Site Speed, On-Page Optimization.</p>
+                </div>
+                
+                <!-- Skill Item 3: Paid Media -->
+                <div class="p-6 rounded-xl border-t-4 border-red-500 bg-gray-800 shadow-2xl">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Paid Media (PPC/Social)</h3>
+                    <div class="h-2 bg-gray-700 rounded-full mb-3">
+                        <div class="skill-bar-inner h-full bg-red-500 rounded-full" style="width: 95%;"></div>
+                    </div>
+                    <p class="text-sm font-bold text-red-400 mb-2">Advanced (4.5/5)</p>
+                    <p class="text-gray-400">Google Ads, Facebook Ads Manager, ROAS Optimization, Social Media Marketing.</p>
+                </div>
+
+                <!-- Skill Item 4: CRO -->
+                <div class="p-6 rounded-xl border-t-4 border-green-500 bg-gray-800 shadow-2xl">
+                    <h3 class="text-xl font-semibold mb-2 text-white">Conversion Rate Opt. (CRO)</h3>
+                    <div class="h-2 bg-gray-700 rounded-full mb-3">
+                        <div class="skill-bar-inner h-full bg-green-500 rounded-full" style="width: 90%;"></div>
+                    </div>
+                    <p class="text-sm font-bold text-green-400 mb-2">Advanced (4/5)</p>
+                    <p class="text-gray-400">UX/UI Redesign, Analytical Skills, Frictionless Checkout.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: PAID MEDIA EXPERIENCE -->
+    <section id="paid-media" class="section bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <i class="fas fa-money-check-alt mr-2 text-red-500"></i> Paid Media Campaign Management
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto text-center mb-10">
+                I specialize in turning ad spend into profit by setting up, optimizing, and scaling campaigns across major platforms, always focused on **Return on Ad Spend (ROAS)** metrics.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Campaign 1: Facebook/Meta Ads Mockup -->
+                <div class="p-6 bg-gray-900 rounded-xl media-card-mockup">
+                    <div class="media-card-header flex items-center justify-between p-3 rounded-t-lg mb-4">
+                        <span class="font-semibold text-white"><i class="fab fa-facebook-f mr-2 text-blue-500"></i> Meta Ads Campaign</span>
+                        <span class="text-xs text-green-400">Status: Scaling</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-bold text-white mb-2">Campaign: Dynamic Product Retargeting</p>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1">
+                            <li>**Objective:** Maximize purchase conversions from warm audience segments.</li>
+                            <li>**Key Metric:** Achieved **4.5x ROAS** by segmenting cart abandoners and recent viewers.</li>
+                            <li>**Strategy:** Used detailed custom audiences and tailored, high-converting product carousel creatives.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Campaign 2: Google Ads Mockup -->
+                <div class="p-6 bg-gray-900 rounded-xl media-card-mockup">
+                    <div class="media-card-header flex items-center justify-between p-3 rounded-t-lg mb-4">
+                        <span class="font-semibold text-white"><i class="fab fa-google mr-2 text-orange-500"></i> Google Ads Campaign</span>
+                        <span class="text-xs text-green-400">Status: Optimized</span>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-bold text-white mb-2">Campaign: High-Intent Google Shopping</p>
+                        <ul class="list-disc list-inside text-gray-400 text-sm space-y-1">
+                            <li>**Objective:** Capture high-intent search traffic with optimized product feeds.</li>
+                            <li>**Key Metric:** Reduced **Cost Per Conversion (CPC)** by 30% through negative keyword sculpting.</li>
+                            <li>**Strategy:** Managed PMAX and standard Shopping campaigns, focusing budget on top-performing product groups (leveraging Google Ads certification).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: SERVICES (incorporating old Strategy and new service details) -->
+    <section id="services" class="section bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <i class="fas fa-tools mr-2 text-sky-400"></i> Comprehensive Shopify & Conversion Services
+            </h2>
+            
+            <div class="max-w-4xl mx-auto mb-10 p-6 rounded-xl border border-sky-500 bg-gray-800 shadow-2xl">
+                <p class="text-xl font-semibold text-white mb-4">
+                    Stop guessing why your Shopify store traffic isn't converting.
+                </p>
+                <p class="text-lg text-gray-400">
+                    As a dedicated **Shopify Expert and Conversion Optimization (CRO) Specialist**, I don't just build beautiful Shopify websites—I engineer them to sell. My process starts where most developers stop: identifying the revenue leaks in your funnel through a comprehensive **Store Audit** or a targeted **Shopify Landing Page Audit**. Whether you need a pixel-perfect Figma to Shopify build or an optimization plan for your existing store, my focus is on a data-driven user experience that boosts your conversion rate and increases **Average Order Value (AOV)**.
+                </p>
+            </div>
+
+            <!-- Service Tab Buttons -->
+            <div class="flex flex-wrap justify-center border-b border-gray-700 mb-8 max-w-5xl mx-auto">
+                <button class="tab-button active flex-1 min-w-[200px] text-center px-4 py-3 text-lg text-gray-300 hover:text-sky-400 transition duration-300" data-tab="strategy" onclick="switchServiceTab('strategy')">
+                    <i class="fas fa-map-marked-alt mr-2"></i> Strategy & Audits
+                </button>
+                <button class="tab-button flex-1 min-w-[200px] text-center px-4 py-3 text-lg text-gray-300 hover:text-sky-400 transition duration-300" data-tab="design" onclick="switchServiceTab('design')">
+                    <i class="fas fa-laptop-code mr-2"></i> Design & Development
+                </button>
+                <button class="tab-button flex-1 min-w-[200px] text-center px-4 py-3 text-lg text-gray-300 hover:text-sky-400 transition duration-300" data-tab="optimization" onclick="switchServiceTab('optimization')">
+                    <i class="fas fa-chart-line mr-2"></i> Optimization & Performance
+                </button>
+                <button class="tab-button flex-1 min-w-[200px] text-center px-4 py-3 text-lg text-gray-300 hover:text-sky-400 transition duration-300" data-tab="support" onclick="switchServiceTab('support')">
+                    <i class="fas fa-headset mr-2"></i> Technical Support
+                </button>
+            </div>
+
+            <!-- Service Tab Content -->
+            <div class="max-w-4xl mx-auto p-6 bg-gray-800 rounded-xl shadow-2xl">
+                
+                <!-- Tab 1: Strategy & Audits -->
+                <div id="strategy-content" class="tab-content active">
+                    <h3 class="text-2xl font-semibold text-sky-400 mb-4">Your CRO Roadmap to Profit</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Full Shopify Store Audit & CRO Analysis</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Detailed Shopify Landing Page Audit</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> User Experience (UX) & Sales Funnel Audit</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Conversion Optimization (CRO) Strategy Development</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Mobile Conversion & Site Speed Audit</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> A/B Testing Strategy & Roadmap Planning</li>
+                    </ul>
+                </div>
+
+                <!-- Tab 2: Design & Development -->
+                <div id="design-content" class="tab-content">
+                    <h3 class="text-2xl font-semibold text-sky-400 mb-4">The Custom, High-Converting Build</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Pixel-Perfect Figma to Shopify Custom Theme Development</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Full Shopify Website & Store Builds (from scratch)</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Custom Shopify Landing Page Design & Development</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Shopify Theme Customization & Feature Integration</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Responsive & Mobile-First Shopify Design</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Shopify Store Setup & Product Configuration</li>
+                    </ul>
+                </div>
+
+                <!-- Tab 3: Optimization & Performance -->
+                <div id="optimization-content" class="tab-content">
+                    <h3 class="text-2xl font-semibold text-sky-400 mb-4">Driving Measurable E-commerce Growth</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Product Page (PDP) Conversion Optimization</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Shopping Cart & Checkout Funnel Optimization</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Average Order Value (AOV) Increase Strategy</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Core Web Vitals & Site Speed Optimization</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Implementing CRO Audit Recommendations</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Shopify Landing Page Performance Tuning</li>
+                    </ul>
+                </div>
+
+                <!-- Tab 4: Shopify Expert Services (Technical Support) -->
+                <div id="support-content" class="tab-content">
+                    <h3 class="text-2xl font-semibold text-sky-400 mb-4">Reliable Technical & Platform Support</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Shopify Developer Technical Support (Retainer)</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> 3rd-Party App Integration & API Troubleshooting</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Shopify Website Migration Services (to Shopify)</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Shopify Plus & Headless Commerce Consultation</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i> Custom Shopify Functionality Development</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#contact" class="btn-animate bg-sky-500 hover:bg-sky-600 text-gray-900 font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300">
+                    Book a Consultation
+                </a>
+                <p class="text-sm text-gray-500 mt-2">Marketing Consultation: $25 per 30 min Zoom meeting</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RETAINED SECTION: THE EXPERT ADVANTAGE (Re-purposed to be Strategy/Rate Guide) -->
+    <section id="why-hire" class="section bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <i class="fas fa-handshake mr-2 text-sky-400"></i> The Expert Advantage: Strategy & Rate Guide
+            </h2>
+
+            <div class="max-w-4xl mx-auto space-y-4">
+                
+                <!-- Expert Definition & Core Areas -->
+                <div class="rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-900 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="flex-grow text-xl font-medium">What is a Certified Shopify Expert Freelancer?</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-800">
+                        <p class="text-gray-400 mb-6">A **Shopify Expert** is a professional who specializes in building, customizing, managing, and optimizing Shopify stores to drive sales and conversion. Unlike a general freelancer, they often possess deep platform knowledge and a focus on measurable business results.</p>
+                        
+                        <h3 class="text-lg font-semibold text-white mb-3">Core Areas of Expertise:</h3>
+                        <table class="expert-table w-full text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Focus Area</th>
+                                    <th>Key Activities & Value to Client</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold text-sky-400">Store Management</td>
+                                    <td>Managing products, collections, inventory, fulfillment, and customer service processes.</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-sky-400">Conversion Rate Optimization (CRO)</td>
+                                    <td>Analyzing customer behavior, A/B testing, optimizing product pages, checkout flow, and reducing cart abandonment.</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-sky-400">Performance & SEO</td>
+                                    <td>Improving site speed (Core Web Vitals), implementing Schema Markup, and driving organic traffic.</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-sky-400">Design & UX</td>
+                                    <td>Customizing themes (Liquid, HTML, CSS), ensuring mobile-first responsiveness, and creating a strong brand user experience.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- In-Demand Skills for 2025 -->
+                <div class="rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-900 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="flex-grow text-xl font-medium">In-Demand Skills for 2025 (Revenue Focused)</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-800">
+                        <p class="text-gray-400 mb-4">To stand out in the freelance market, I prioritize high-value skills that directly drive client revenue:</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                            <li class="font-semibold text-white"><span class="text-sky-400">Conversion Rate Optimization (CRO):</span> Moving beyond just 'managing' to improving the store's proven performance.</li>
+                            <li class="font-semibold text-white"><span class="text-sky-400">Performance Optimization:</span> Expertise in reducing page load times, which directly impacts Google SEO ranking and user experience.</li>
+                            <li class="font-semibold text-white"><span class="text-sky-400">Shopify Plus Experience:</span> Working with complex, high-volume stores that require custom checkouts and advanced integrations.</li>
+                            <li class="font-semibold text-white"><span class="text-sky-400">Integration of AI Tools:</span> Leveraging new AI features for product description generation, image optimization, and automated support.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Freelance Rate Guide -->
+                <div class="rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-900 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="flex-grow text-xl font-medium">Freelance Rate Guide & Value Proposition</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-800">
+                        <h3 class="text-lg font-semibold text-white mb-3">Hourly Rate Comparison (Global Average):</h3>
+                        <table class="expert-table w-full text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Experience Level</th>
+                                    <th>Typical Hourly Rate</th>
+                                    <th>Key Service Focus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Beginner/Junior (0-2 years)</td>
+                                    <td>$15 - $50 USD</td>
+                                    <td>Theme setup, minor CSS tweaks.</td>
+                                </tr>
+                                <tr>
+                                    <td>Mid-Level (2-5 years)</td>
+                                    <td>$50 - $100 USD</td>
+                                    <td>API integrations, custom section building, basic SEO.</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold text-sky-400">Expert/Senior (5+ years)</td>
+                                    <td class="font-bold text-sky-400">$100 - $200+ USD</td>
+                                    <td>Custom development, advanced CRO strategy, Shopify Plus projects.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-sm text-gray-500 mt-4 italic">
+                            **Pro Tip:** My current rate reflects my high value in combining management, advanced SEO, and CRO expertise to drive revenue, often justifying a higher rate than general setup specialists.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- PROJECTS & EXPERIENCE TIMELINE SECTION -->
+    <section id="projects" class="section bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <i class="fas fa-project-diagram mr-2 text-sky-400"></i> Featured Projects: The 3-Year Path
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                
+                <!-- Project 1 -->
+                <div class="mb-4 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-800 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="text-sky-400 font-bold mr-4">[2024]</span> 
+                        <span class="flex-grow text-xl font-medium">Premium E-commerce Brand Scale-Up</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-900">
+                        <p class="text-base font-semibold text-gray-300 mb-3">**Role:** Lead AI SEO Strategist & Technical Developer</p>
+                        <p class="text-lg text-green-400 mb-4"><i class="fas fa-trophy mr-2"></i> **Result:** **+115% Organic Traffic** YOY. Conversion Rate increased to **6.8%**.</p>
+                        <p class="font-bold text-sky-400 mb-2">The Path:</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-1">
+                            <li>Implemented **Predictive SEO Strategy** using AI to target long-tail semantic content.</li>
+                            <li>Complete **Shopify Technical SEO Audit** and fixed 200+ indexing errors.</li>
+                            <li>Optimized PDPs with **Structured Data (Schema)** for Rich Results.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="mb-4 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-800 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="text-sky-400 font-bold mr-4">[2023]</span> 
+                        <span class="flex-grow text-xl font-medium">High-Volume Store Speed & CRO Redesign</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-900">
+                        <p class="text-base font-semibold text-gray-300 mb-3">**Role:** Shopify Developer & Performance Optimization Expert</p>
+                        <p class="text-lg text-green-400 mb-4"><i class="fas fa-trophy mr-2"></i> **Result:** Mobile Page Speed improved to **1.8s**. AOV increased by **22%**.</p>
+                        <p class="font-bold text-sky-400 mb-2">The Path:</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-1">
+                            <li>Complete Theme Overhaul and **Liquid Code Optimization**.</li>
+                            <li>Implemented **Image and Asset Lazy-Loading** (technical fix).</li>
+                            <li>Redesigned the checkout process for a **Frictionless Funnel**.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="mb-4 rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-800 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="text-sky-400 font-bold mr-4">[2022]</span> 
+                        <span class="flex-grow text-xl font-medium">Full Brand Launch & MVP Store Build</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-900">
+                        <p class="text-base font-semibold text-gray-300 mb-3">**Role:** Full Shopify Store Setup & Management</p>
+                        <p class="text-lg text-green-400 mb-4"><i class="fas fa-trophy mr-2"></i> **Result:** Successful launch within 4 weeks. Store achieved **$10k in first-month sales**.</p>
+                        <p class="font-bold text-sky-400 mb-2">The Path:</p>
+                        <ul class="list-disc list-inside text-gray-400 space-y-1">
+                            <li>Full Shopify Store setup (from blank theme) and app integration.</li>
+                            <li>Setup and management of initial **Google Ads Search Campaign**.</li>
+                            <li>Initial On-Page SEO setup for core product categories.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL HISTORY (CV Section) -->
+    <section id="history" class="section bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <i class="fas fa-briefcase mr-2 text-sky-400"></i> Professional History & Impact
+            </h2>
+            <div class="max-w-4xl mx-auto border-l-4 border-sky-500 pl-6 space-y-10">
+                
+                <!-- NEW Freelance/Consultant Role (Top of timeline) -->
+                <div class="job-item relative">
+                    <span class="job-timeline-dot"></span>
+                    <h3 class="text-xl font-semibold text-white mb-1">eCommerce Design, Growth & Paid Media Consultant (Freelance)</h3>
+                    <p class="text-sky-400 text-sm">Self-Employed / Freelance | Jan 2022 – Present (4+ yrs)</p>
+                    <ul class="text-gray-400 mt-2 list-disc list-inside space-y-1 text-sm">
+                        <li>Managed end-to-end drop shipping and DTC store launches, responsible for theme selection, UX optimization, and essential app integration.</li>
+                        <li>Developed and managed high-performing Paid Advertising Campaigns on Google (Search/Shopping) and Social Media (Facebook, Instagram) with a focus on target **ROAS/ACOS metrics**.</li>
+                        <li>Executed strategic Search Engine Optimization (SEO) plans, focusing on product page optimization, site speed, and conversion rate improvements.</li>
+                        <li>Provided ongoing store management, product listing optimization, and performance audits to ensure long-term scalability and profitability.</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-2">Skills: Shopify, WooCommerce, Google Ads (PPC), Facebook Ads Manager, CRO, Web Design</p>
+                </div>
+
+                <!-- Role 1: E-commerce Manager (Full-Time) -->
+                <div class="job-item relative">
+                    <span class="job-timeline-dot"></span>
+                    <h3 class="text-xl font-semibold text-white mb-1">E-commerce Manager (Full-Time)</h3>
+                    <p class="text-sky-400 text-sm">Shopify Expert IT | 2024 – Present</p>
+                    <p class="text-gray-400 mt-2">Managed a portfolio of Shopify stores, implementing comprehensive SEO strategies. Key Metric: Increased average client organic traffic by **75%** within the first year. Successfully migrated 3 high-volume stores with **zero loss of SEO rankings**.</p>
+                </div>
+                
+                <!-- Role 2: E-commerce Manager (Part-Time) -->
+                <div class="job-item relative">
+                    <span class="job-timeline-dot"></span>
+                    <h3 class="text-xl font-semibold text-white mb-1">E-commerce Manager (Part-Time)</h3>
+                    <p class="text-sky-400 text-sm">Shopify Expert IT | 2023 – Present</p>
+                    <p class="text-gray-400 mt-2">Focused on optimizing online retail experiences, crafting engaging user journeys, and implementing strategies to enhance customer engagement and conversion rates, with a keen focus on **Global E-commerce** and **SEO Audits**.</p>
+                </div>
+                
+                <!-- Role 3: Foundational Management Skills -->
+                <div class="job-item relative opacity-70">
+                    <span class="job-timeline-dot"></span>
+                    <h3 class="text-xl font-semibold text-white mb-1">Assistant Supervisor / Quality Control Manager</h3>
+                    <p class="text-sky-400 text-sm">KNIT CONCERN LTD / TS TECH BD LTD. | 2019 – 2022</p>
+                    <p class="text-gray-400 mt-2">Demonstrated transferable skills in **Team Management**, **Quality Assurance**, and **Attention to Detail** through establishing SOPs and monitoring team performance.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS (FAQ) SECTION -->
+    <section id="faq" class="section bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">
+                <i class="fas fa-question-circle mr-2 text-sky-400"></i> Frequently Asked Questions
+            </h2>
+            <div class="max-w-4xl mx-auto space-y-4">
+                
+                <!-- FAQ Item 1: Expert vs Developer (Moved here from old location) -->
+                <div class="rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-800 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="flex-grow text-xl font-medium">What is the difference between a Shopify Expert and a Developer?</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-900">
+                        <p class="text-gray-400">A **Shopify Developer** focuses primarily on coding (Liquid, custom features). As a **Certified Shopify Expert**, I combine development skills with strategic consulting: focusing on conversion rate optimization (CRO), performance, and AI SEO strategy to ensure the technical work directly translates to revenue growth.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2: Speed of Results -->
+                <div class="rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-800 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="flex-grow text-xl font-medium">How quickly will I see results from AI SEO and CRO implementation?</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-900">
+                        <p class="text-gray-400">CRO changes (speed, UX fixes) can show measurable results within **4-8 weeks**. AI SEO, which targets organic visibility, is a long-term strategy, typically showing significant traffic growth and ranking improvements starting around **4 to 6 months** after implementation, with consistent growth thereafter.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3: Platform Agnosticism -->
+                <div class="rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-800 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="flex-grow text-xl font-medium">Do you work with platforms other than Shopify (e.g., WooCommerce)?</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-900">
+                        <p class="text-gray-400">While I am a certified **Shopify Expert**, my core strategies (SEO, CRO, performance optimization) are platform-agnostic. I have successfully applied these principles to other platforms and can assist with technical audits and migrations. However, deep code customization is prioritized for Shopify and Shopify Plus clients.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4: Pricing Structure -->
+                <div class="rounded-xl overflow-hidden shadow-xl border border-gray-700">
+                    <button class="accordion-header flex justify-between items-center w-full p-5 text-left bg-gray-800 hover:bg-gray-700 transition duration-300 focus:outline-none" aria-expanded="false">
+                        <span class="flex-grow text-xl font-medium">How do you structure your pricing for projects?</span>
+                        <i class="fas fa-chevron-down icon-arrow transform transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-gray-900">
+                        <p class="text-gray-400">My pricing is flexible. For smaller fixes and quick tasks, I use an **hourly rate** ($10.00/hr, visible on Upwork). For large scope items like full store redesigns or 6-month SEO strategies, I provide a **fixed project quote** after a detailed discovery call and audit. For ongoing support, I offer **monthly retainer packages**.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / FINAL CTA -->
+    <footer id="contact" class="section bg-gray-900 border-t border-gray-700 text-center py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-4">Ready to Engineer Your E-commerce Growth?</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                Send a direct message for a free, no-obligation consultation to discuss your specific Shopify revenue goals.
+            </p>
+            
+            <a href="mailto:your_email@example.com" class="btn-animate bg-sky-500 hover:bg-sky-600 text-gray-900 font-extrabold text-xl py-4 px-10 rounded-lg shadow-xl transition duration-300">
+                <i class="fas fa-envelope mr-3"></i> Message Likiya Now
+            </a>
+
+            <div class="contact-info mt-8 text-sm text-gray-500 space-y-1">
+                <p>Location: Dhaka, Bangladesh (Remote Consultant)</p>
+                <p>Upwork Profile: <a href="https://www.upwork.com/freelancers/~01819fb05c41718bf3" target="_blank" class="text-sky-400 hover:text-white underline">View Upwork Profile</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR ACCORDION AND TAB FUNCTIONALITY -->
+    <script>
+        // Function to toggle mobile menu visibility
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Function to switch service tabs
+        function switchServiceTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Deactivate all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected tab content and activate the button
+            document.getElementById(tabId + '-content').classList.add('active');
+            document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the first tab to be active
+            switchServiceTab('strategy'); 
+            
+            // Accordion functionality for Projects and FAQ
+            const headers = document.querySelectorAll('.accordion-header');
+
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    
+                    content.classList.toggle('active');
+
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    
+                    const icon = this.querySelector('.icon-arrow');
+                    if (icon) {
+                        icon.classList.toggle('rotate-180');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
